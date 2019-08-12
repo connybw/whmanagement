@@ -1,2 +1,3 @@
 # whmanagement
-Simple PHP-Script + Database for managing warehouses
+Simple PHP-Script + database for managing warehouses
+
