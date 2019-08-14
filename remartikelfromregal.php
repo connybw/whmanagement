@@ -1,9 +1,10 @@
-
-
 <?php
 include "inc/connection.php";
-$farbe = $_GET['farbe'];
-$sql="UPDATE settings SET button = '" . $farbe . "' WHERE id = 0";
+$regaldevid = $_GET['regaldevid'];
+
+$sql="UPDATE regaldev SET artikelid = 0 WHERE id = '" . $regaldevid ."'";
 $sqlquery = mysqli_query($db, $sql);
+
 header('Location:'. $_SERVER['HTTP_REFERER'] .''); 
+
 ?>

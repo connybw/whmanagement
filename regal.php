@@ -35,7 +35,6 @@ $sql="SELECT name FROM regal WHERE id = '" . $regalid . "'";
 			echo '<th scope"col">' . $up  .'</th>';
 			$max = $max -1;
 			$up = $up +1;
-			
 			}
 			}
 			?>

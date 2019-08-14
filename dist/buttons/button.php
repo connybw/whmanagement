@@ -1,5 +1,5 @@
 <?php
-$sql = "SELECT buttons.farbid AS color FROM style JOIN buttons ON buttons.id = style.objectid WHERE item ='button'";
+$sql = "SELECT buttons.farbid AS color FROM settings JOIN buttons ON buttons.id = settings.button WHERE settings.id = 0";
 foreach($pdo->query($sql) as $row)
 		{
 		$color = $row['color'];
@@ -16,11 +16,10 @@ $btntrash = '<button type="create" class="' . $color .'"><span class="fas fa-tra
 $btnlink = '<button type="create" class="' . $color . '"><span class="fas fa-external-link-alt" aria-hidden="true"></span></button>';
 $btnclone = '<button type="create" class="' . $color . '"><span class="fas fa-clone" aria-hidden="true"></span></button>';
 $btnbuilding = '<button type="create" class="' . $color . '"><span class="fas fa-building" aria-hidden="true"></span></button>';
-//--Green inverted Buttons--
-//--Grey Buttons--
-//--Grey inverted Buttons--
-//--Blue Buttons--
-//--Blue inverted Buttons--
-//--Red Buttons--
-//--Red inverted Buttons--
+$btnsave = '<button type="create" class="' . $color . '"><span class="fas fa-save" aria-hidden="true"></span></button>';
+$btncartplus = '<button type="create" class="' . $color . '"><span class="fas fa-cart-plus" aria-hidden="true"></span></button>';
+$btnedit = '<button type="create" class="' . $color . '"><span class="fas fa-edit" aria-hidden="true"></span></button>';
+$btncart = '<button type="create" class="' . $color . '"><span class="fas fa-shopping-cart" aria-hidden="true"></span></button>';
+$btnplussquare = '<button type="create" class="' . $color . '"><span class="fas fa-plus-square" aria-hidden="true"></span></button>';
+$btncheckcircle = '<button type="create" class="' . $color . '"><span class="fas fa-check-circle" aria-hidden="true"></span></button>';
 ?>

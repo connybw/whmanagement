@@ -1,6 +1,14 @@
 <?php
 include "connection.php";
 include "dist/buttons/button.php";
+include "deviceinfo.php";
+include "redirect.php";
+
+$sql = "SELECT company FROM settings";
+foreach($pdo->query($sql) as $row)
+		{
+			$companyHead = $row['company'];
+		}
 ?>
 <head>
 <link rel="stylesheet" type="text/css" href="dist/css/bootstrap.css">
@@ -12,9 +20,9 @@ include "dist/buttons/button.php";
 </head>
 
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-<?php echo $btnbuilding; ?>
+<a href="index.php"><?php echo $btnbuilding; ?></a>
 &nbsp;
-  <a class="navbar-brand" href="#">EHW Wunder</a>
+  <a class="navbar-brand" href="index.php"><?php echo $companyHead?></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -30,6 +38,12 @@ include "dist/buttons/button.php";
       <li class="nav-item <?php if($head == 3) {echo "active";} ?> ">
         <a class="nav-link" href="artikel.php">Artikel</a>
       </li>
+	  <li class="nav-item <?php if($head == 4) {echo "active";} ?> ">
+        <a class="nav-link" href="cart.php">Wagen</a>
+		</li>
+	  <li class="nav-item <?php if($head == 5) {echo "active";} ?> ">
+        <a class="nav-link" href="settings.php">Einstellungen</a>
+		</li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Button</a>
         <div class="dropdown-menu" aria-labelledby="dropdown01">
@@ -46,6 +60,7 @@ include "dist/buttons/button.php";
   </div>
     <form class="form-inline my-2 my-lg-0">
     <input class="form-control mr-sm-2" type="text" name="suche" id="suche" placeholder="Suchen" aria-label="Suchen">
+	&nbsp;
     <button class="<?php echo $color; ?>" type="submit">Search</button>
 	&nbsp;
 	</form>
@@ -56,5 +71,8 @@ if(isset($_GET['suche']))
 {
 	header("Location: suche.php?search=" . $_GET['suche'] . "");
 }
-
+if($device != 'pc')
+{
+echo "<br>";
+}
 ?>
