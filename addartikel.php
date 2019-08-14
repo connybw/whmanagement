@@ -2,6 +2,7 @@
 $head = 2;
 include "inc/connection.php";
 include "inc/head.php";
+
 $regal = $_GET['regalid'];
 $reihe = $_GET['reihe'];
 $spalte = $_GET['spalte'];
@@ -34,7 +35,9 @@ $spalte = $spalte +1;
 		{
 			$sql="UPDATE regaldev SET artikelid = '" . $_POST['artikel'] . "'  WHERE regalid = '" .  $regal ."' AND reihe = '" . $reihe . "' AND spalte = '" . $spalte ."'";
 			$sqlquery = mysqli_query($db, $sql);
-			header("Location: regal.php?regalid=" . $regal ."");
+			
+			$url = "regal.php?regalid=" . $regal ."";
+			redirect($url);
 		}
 		?>
 		<hr>
